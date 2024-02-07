@@ -11,6 +11,13 @@ site_dir: $READTHEDOCS_OUTPUT/html
 nav:
     - Summary: 'index.md'
     - Installation: 'installation.md'
+    - Auth: 'auth/index.md'
+    - Events: 'events/index.md'
+    - Tags: 'tags/index.md'
+    - Alarms: 'alarms/index.md'
+    - DAQ: 'daq/index.md'
+    - OPCUA: 'opcua/index.md'
+    - WebSocket: 'websocket/index.md'
 
 markdown_extensions:
   - admonition
