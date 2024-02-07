@@ -6,7 +6,7 @@ theme:
 repo_name: ProNode
 repo_url: https://github.com/know-ai/Pronode
 edit_uri: ""
-site_dir: _build/html
+site_dir: $READTHEDOCS_OUTPUT/html
 
 nav:
     - Summary: 'index.md'
