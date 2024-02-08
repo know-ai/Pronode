@@ -1,0 +1,33 @@
+FROM python:3.10.2-slim-buster
+
+WORKDIR /app
+
+LABEL author="KnowAI"
+
+LABEL description="Data Acquisition System"
+
+RUN apt-get update && apt-get install --yes --no-install-recommends \
+    aufs-tools \
+    automake \
+    build-essential \
+    curl \
+ && rm -rf /var/lib/apt/lists/*
+
+ENV TZ=America/Lima
+
+RUN pip3 install --upgrade pip
+
+COPY . .
+
+COPY requirements.txt requirements.txt
+
+RUN pip3 install -r requirements.txt
+
+RUN chmod +x startup.sh
+
+EXPOSE 5001
+
+ENTRYPOINT ["./startup.sh"]
+
+HEALTHCHECK --interval=5s --timeout=10s --start-period=55s \
+   CMD curl -f --retry 5 --max-time 15 --retry-delay 5 --retry-max-time 60 "https://127.0.0.1:5001/api/healthcheck/" || exit 1 

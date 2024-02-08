@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+
+  daq_db:
+    container_name: "daq_db"
+    image: "postgres"
+    restart: always
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: daq_db
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      
+  daq:
+    container_name: "daq"
+    image: "knowai/daq:beta"
+    ports:
+      - 5001:5001
+    environment:
+      APP_MODE: Production
+      DB_NAME: daq_db
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: daq_db
+      DB_PORT: 5432
+
+    volumes:
+      - ./init_config/config.yml:/app/config.yml
+
+    depends_on:
+      daq_db:
+        condition: service_healthy
+    links:
+      - daq_db:daq_db

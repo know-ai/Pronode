@@ -1,0 +1,306 @@
+version: '3'
+
+modules:
+
+  # tags:
+
+  #   groups:
+
+  #     cvt_p1:
+
+  #       FI_02:
+  #         name: 'linea1.FI_02'
+  #         unit: 'kg/s'
+  #         data_type: 'float'
+  #         description: 'Outlet Flow'
+  #         display_name: 'F_02'
+  #         min_value: 0
+  #         max_value: 5000
+  #         tcp_source_address: 'opc.tcp://10.10.50.229:4840/iDetectFugas/ServerSimulator/'
+  #         node_namespace: 'ns=2;i=2'
+
+  #       PI_02:
+  #         name: 'linea1.PI_02'
+  #         unit: 'Pa'
+  #         data_type: 'float'
+  #         description: 'Outlet Pressure'
+  #         display_name: 'P2.P02'
+  #         min_value: 0
+  #         max_value: 1500000
+  #         tcp_source_address: 'opc.tcp://10.10.50.229:4840/iDetectFugas/ServerSimulator/'
+  #         node_namespace: 'ns=2;i=3'
+
+  #       DI_02:
+  #         name: 'linea1.DI_02'
+  #         unit: 'kg/m3'
+  #         data_type: 'float'
+  #         description: 'Outlet Density'
+  #         display_name: 'D02'
+  #         min_value: 0
+  #         max_value: 1500
+  #         tcp_source_address: 'opc.tcp://10.10.50.229:4840/iDetectFugas/ServerSimulator/'
+  #         node_namespace: 'ns=2;i=4'
+
+  #       TI_02:
+  #         name: 'linea1.TI_02'
+  #         unit: 'C'
+  #         data_type: 'float'
+  #         display_name: 'TI02'
+  #         description: 'Outlet Temperature'
+  #         min_value: 0
+  #         max_value: 1500
+  #         tcp_source_address: 'opc.tcp://10.10.50.229:4840/iDetectFugas/ServerSimulator/'
+  #         node_namespace: 'ns=2;i=5'
+
+  #     lds_P1:
+
+  #       leak:
+  #         name: 'linea1.leak_LDS'
+  #         unit: ''
+  #         data_type: 'bool'
+  #         description: 'Leak tag for LDS'
+
+  #       leak_location:
+  #         name: 'linea1.leak_location_LDS'
+  #         unit: 'm'
+  #         data_type: 'float'
+  #         description: 'Leak location by LDS'
+
+  #       leak_flow:
+  #         name: 'linea1.leak_flow_LDS'
+  #         unit: 'kg/s'
+  #         data_type: 'float'
+  #         description: 'Leak flow by LDS'
+
+  #       leak_size:
+  #         name: 'linea1.leak_size_LDS'
+  #         unit: 'in'
+  #         data_type: 'float'
+  #         description: 'Leak size by LDS'
+
+  #       leak_volume:
+  #         name: 'linea1.leak_volume_LDS'
+  #         unit: 'm3'
+  #         data_type: 'float'
+  #         description: 'Leak volume spilled by LDS'
+
+  #     npw_P1:
+
+  #       leak:
+  #         name: 'linea1.leak_NPW'
+  #         unit: ''
+  #         data_type: 'bool'
+  #         description: 'Leak tag for NPW'
+
+  #       lower_bound:
+  #         name: 'linea1.lower_bound_NPW'
+  #         unit: ''
+  #         data_type: 'bool'
+  #         description: 'Lower bound for threshold in interquartile range for NPW'
+
+  #       likelihood_iqr:
+  #         name: 'linea1.likelihood_iqr_NPW'
+  #         unit: ''
+  #         data_type: 'bool'
+  #         description: 'Interquartile range computation for NPW'
+
+  #       threshold_iqr:
+  #         name: 'linea1.threshold_iqr_NPW'
+  #         unit: ''
+  #         data_type: 'bool'
+  #         description: 'Threshold for NPW'
+
+  #     observer_P1:
+
+  #       leak:
+  #         name: 'linea1.leak_Observer'
+  #         unit: ''
+  #         data_type: 'bool'
+  #         description: 'Leak tag for Observer'
+
+  #       leak_location:
+  #         name: 'linea1.leak_location_Observer'
+  #         unit: 'm'
+  #         data_type: 'float'
+  #         description: 'Leak location by Observer'
+
+  #       leak_flow:
+  #         name: 'linea1.leak_flow_Observer'
+  #         unit: 'kg/s'
+  #         data_type: 'float'
+  #         description: 'Leak flow by Observer'
+
+  #       leak_size:
+  #         name: 'linea1.leak_size_Observer'
+  #         unit: 'in'
+  #         data_type: 'float'
+  #         description: 'Leak size by Observer'
+
+  #       leak_likelihood:
+  #         name: 'linea1.likelihood_leak_Observer'
+  #         unit: ''
+  #         data_type: 'float'
+  #         description: 'Likelihood leak by Observer'
+        
+  #       leak_volume:
+  #         name: 'linea1.leak_volume_Observer'
+  #         unit: 'm3'
+  #         data_type: 'float'
+  #         description: 'Leak volume spilled by Observer'
+
+  #     pfm_P1:
+
+  #       leak:
+  #         name: 'linea1.leak_PFM'
+  #         unit: ''
+  #         data_type: 'bool'
+  #         description: 'Leak tag for PFM'
+
+  #       likelihood_leak:
+  #         name: 'linea1.likelihood_leak_PFM'
+  #         unit: ''
+  #         data_type: 'float'
+  #         description: 'Likelihood Leak tag for PFM'
+
+  #       leak_location:
+  #         name: 'linea1.leak_location_PFM'
+  #         unit: 'm'
+  #         data_type: 'float'
+  #         description: 'Leak location by PFM'
+
+  #       leak_flow:
+  #         name: 'linea1.leak_flow_PFM'
+  #         unit: 'kg/s'
+  #         data_type: 'float'
+  #         description: 'Leak flow by PFM'
+
+  #       leak_size_P1:
+  #         name: 'linea1.leak_size_PFM'
+  #         unit: 'in'
+  #         data_type: 'float'
+  #         description: 'Leak size by PFM'
+
+  #       leak_volume:
+  #         name: 'linea1.leak_volume_PFM'
+  #         unit: 'm3'
+  #         data_type: 'float'
+  #         description: 'Leak volume spilled by PFM'
+
+  #     mb_P1:
+  #       leak:
+  #         name: 'linea1.leak_MB'
+  #         unit: ''
+  #         data_type: 'bool'
+  #         description: 'Leak tag for MB'
+
+  #       leak_flow:
+  #         name: 'linea1.leak_flow_MB'
+  #         unit: 'kg/s'
+  #         data_type: 'float'
+  #         description: 'Leak flow by MB'
+
+  #     sa_P1:
+  #       leak:
+  #         name: 'linea1.leak_SA'
+  #         unit: ''
+  #         data_type: 'bool'
+  #         description: 'Leak tag for SA'
+
+  #     rttm_P1:
+  #       leak:
+  #         name: 'linea1.leak_RTTM'
+  #         unit: ''
+  #         data_type: 'bool'
+  #         description: 'Leak tag for RTTM'
+
+  #       leak_flow:
+  #         name: 'linea1.leak_flow_RTTM'
+  #         unit: 'kg/s'
+  #         data_type: 'float'
+  #         description: 'Leak flow by RTTM'
+
+  #   conversions:
+  #     pressure: 'Pa'
+  #     temperature: 'C'
+  #     massdensity: 'kg/m3'
+  #     volumetricflow: 'm3/s'
+  #     massflow: 'kg/s'
+
+  # alarms:
+
+  #   leak_P1:
+  #     name: "linea1.leak_alarm_LDS"
+  #     tag: "linea1.leak_LDS"
+  #     description: "Leak alarm by LDS"
+  #     type: 'bool'
+  #     trigger: 1.0
+
+  #   leak_npw_P1:
+  #     name: "linea1.leak_alarm_NPW"
+  #     tag: "linea1.leak_NPW"
+  #     description: "Leak alarm by NPW"
+  #     type: 'bool'
+  #     trigger: 1.0
+
+  #   leak_observer_P1:
+  #     name: "linea1.leak_alarm_Observer"
+  #     tag: "linea1.leak_Observer"
+  #     description: "Leak alarm by Observer"
+  #     type: 'bool'
+  #     trigger: 1.0
+
+  #   leak_pfm_P1:
+  #     name: "linea1.leak_alarm_PFM"
+  #     tag: "linea1.leak_PFM"
+  #     description: "Leak alarm by PFM"
+  #     type: 'bool'
+  #     trigger: 1.0
+
+  #   leak_mb_P1:
+  #     name: "linea1.leak_alarm_MB"
+  #     tag: "linea1.leak_MB"
+  #     description: "Leak alarm by MB"
+  #     type: 'bool'
+  #     trigger: 1.0
+
+  #   leak_sa_P1:
+  #     name: "linea1.leak_alarm_SA"
+  #     tag: "linea1.leak_SA"
+  #     description: "Leak alarm by SA"
+  #     type: 'bool'
+  #     trigger: 1.0
+
+  #   leak_rttm_P1:
+  #     name: "linea1.leak_alarm_RTTM"
+  #     tag: "linea1.leak_RTTM"
+  #     description: "Leak alarm by RTTM"
+  #     type: 'bool'
+  #     trigger: 1.0
+
+  daq:
+
+    interval: 1.0
+
+  opcua-server:
+
+    interval: 5.0
+
+  opcua-client:
+
+    host: "127.0.0.1"
+    port: 4840
+
+db:
+
+  dev_mode:
+    db_name: "app.db"
+  
+  prod_mode:
+    db_type: "POSTGRESQL"
+    db_name: ${DB_NAME}
+    db_user: ${DB_USER}
+    db_password: ${DB_PASSWORD}
+    db_host: ${DB_HOST}
+    db_port: ${DB_PORT}
+
+  sample_time: ${DB_SAMPLE_TIME}

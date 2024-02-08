@@ -1,0 +1,14 @@
+__pycache__
+venv
+build
+.dockerignore
+**/.git
+**/venv
+**/tests
+**/__pycache__
+*.env
+*.log
+*.db
+*Dockerfile
+logs/*
+app/ssl
