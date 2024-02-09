@@ -121,6 +121,7 @@ celerybeat.pid
 
 # Environments
 .env
+*:Zone.Identifier
 .venv
 env/
 venv/
